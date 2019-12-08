@@ -1,0 +1,5 @@
+name: ReplayProtocol
+author: TobiasDev
+api: ["3.0.0"]
+version: 1.2
+main: tobiasdev\replay\protocol\ReplayProtocol
