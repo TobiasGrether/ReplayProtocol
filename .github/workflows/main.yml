@@ -18,8 +18,9 @@ jobs:
         chmod +x Build/BuildScript.php
         php -dphar.readonly=0 Build/BuildScript.php --make . --out Build/ReplayProtocol.phar
         echo Build completed!
-    - name: Upload
+    - name: Plugin-Upload
       uses: actions/upload-artifact@v1
       with:
-        name: ReplayProtocol.phar
+        name: ReplayProtocol
         path: Build/ReplayProtocol.phar
+        
