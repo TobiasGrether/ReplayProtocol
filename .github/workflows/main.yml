@@ -20,13 +20,25 @@ jobs:
         chmod +x Build/BuildScript.php
         php -dphar.readonly=0 Build/BuildScript.php --make . --out ReplayProtocol.phar
         echo Build completed!
-    - name: Release
-      uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/heads/master')
-      with:
-        files: Release.txt
-        draft: false
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+    - name: Upload Release Asset
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./ReplayProtocol.phar
+        asset_name: ReplayProtocol.phar
+        asset_content_type: application/x-gzip
 
         
