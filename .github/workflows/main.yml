@@ -26,7 +26,7 @@ jobs:
     - name: Upload to release
       uses: JasonEtco/upload-to-release@master
       with:
-        args: Build/ReplayProtocol.phar binary/octet-stream
+        args: Build/ReplayProtocol.phar application/x-php
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
