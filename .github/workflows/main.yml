@@ -11,15 +11,13 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Startup
-      run: echo Building a BattleMC Plugin...
+      run: echo Building a Plugin
     - name: Build
       run: |
         echo Building...
         chmod +x Build/BuildScript.php
-        
         php -dphar.readonly=0 Build/BuildScript.php --make . --out Build/ReplayProtocol.phar
         echo Build completed!
-        [ ! -f Build/ReplayProtocol.phar ] && echo "$FILE does not exist"
     - name: Upload to release
       uses: JasonEtco/upload-to-release@master
       with:
