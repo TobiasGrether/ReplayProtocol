@@ -22,5 +22,5 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: ReplayProtocol
-        path: Build/ReplayProtocol.phar
+        path: Build/ReplayProtocol.phar application/jar
         
