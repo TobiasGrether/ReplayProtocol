@@ -18,15 +18,11 @@ jobs:
         chmod +x Build/BuildScript.php
         php -dphar.readonly=0 Build/BuildScript.php --make . --out Build/ReplayProtocol.phar
         echo Build completed!
-    - name: Plugin-Upload
-      uses: actions/upload-artifact@v1
-      with:
-        name: ReplayProtocol
-        path: Build/ReplayProtocol.phar
     - name: Upload to release
       uses: JasonEtco/upload-to-release@master
       with:
         args: Build/ReplayProtocol.phar application/x-gzip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
         
