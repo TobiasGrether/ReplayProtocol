@@ -22,7 +22,7 @@ jobs:
         echo Build completed!
     - name: Release
       uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'master')
+      if: startsWith(github.ref, 'refs/heads/master')
       with:
         files: Release.txt
         draft: false
