@@ -1,13 +1,8 @@
-  
 name: CI
-
 on: [push]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: Startup
@@ -29,7 +24,7 @@ jobs:
         tag_name: v${{ env.DATE }}
         release_name: v${{ env.DATE }}
     - name: Upload Release Asset
-      id: upload-release-asset 
+      id: upload-release-asset
       uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,5 +33,3 @@ jobs:
         asset_path: ./ReplayProtocol.phar
         asset_name: ReplayProtocol.phar
         asset_content_type: application/x-gzip
-
-        
