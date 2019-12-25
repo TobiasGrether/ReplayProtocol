@@ -18,6 +18,8 @@ class ReplayStream extends NetworkBinaryStream
 
     public $stop;
 
+    public $server;
+    
     /** @var BaseEntry[] */
     public $data = [];
 
