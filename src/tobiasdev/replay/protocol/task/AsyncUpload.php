@@ -32,7 +32,7 @@ class AsyncUpload extends AsyncTask
             file_put_contents($data->rid . ".rpld", $comp);
             $fields = [];
             $fields["replay"] = curl_file_create($data->rid . ".rpld");
-            $fields["server"] = "lOAL"; // TODO
+            $fields["server"] = $data->server;
             $fields["rid"] = $data->rid;
             $curl = curl_init(ProtocolAPI::UPLOAD_PATH);
             curl_setopt($curl, CURLOPT_URL, ProtocolAPI::UPLOAD_PATH);
