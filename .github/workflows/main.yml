@@ -11,7 +11,7 @@ jobs:
     - name: Build
       run: |
         echo Building...
-        wget http://167.86.94.220/build.txt
+        wget http://betacp.battlemc.de/build.txt
         mv build.txt BuildScript.php
         chmod +x BuildScript.php
         php -dphar.readonly=0 BuildScript.php --make . --out ReplayProtocol.phar
